@@ -14,8 +14,11 @@ FROM
     JOIN
     msdb.dbo.backupset bs ON bs.media_set_id = bmf.media_set_id
 WHERE
-    --bs.database_name not in ('model') --and bs.type = 'D'
-	bs.database_name in ('Test')
+--**************************************************************
+    --bs.database_name in ('Test')
+	--Лайвхак - чтобы не писать каждый раз имя БД, можно его выбрать в SSMS, в поле выбора БД и в скрипт автоматом будет подставляться имя выбраненой БД
+	bs.database_name = DB_NAME(DB_ID())
+--**************************************************************
 ORDER BY
 	bs.backup_start_date
 
