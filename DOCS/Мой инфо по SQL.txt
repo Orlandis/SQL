@@ -89,6 +89,9 @@ FROM
     msdb.dbo.backupmediafamily bmf
     JOIN
     msdb.dbo.backupset bs ON bs.media_set_id = bmf.media_set_id
+
+или проще вариант	-	select * into Test4 from #test
+
 ----------------------------------------------
 Ещё один из видов импорта/експорта BULK INSERT, использование утилиты BCP
 Для её работы должен быть установлен ODBC драйвер и в нём настроено подключение к серверу SQL
