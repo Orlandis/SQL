@@ -25,6 +25,10 @@ SELECT * INTO ImportToSql
 FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
 'Excel 12.0; Database=C:\Install\podr.xlsx', [TDSheet$]);
 
+//Так же в процессе импорта можно столкнуться с ошибкой доступа к файлу источнику данных
+//Данная статья должна помочь в решении вопроса
+//https://blog.sqlauthority.com/2018/12/04/sql-server-the-ole-db-provider-microsoft-ace-oledb-12-0-for-linked-server-null-reported-an-error-access-denied/
+
 SELECT * FROM ImportToSql
 
 UPDATE ImportToSql SET Prefix = REPLACE(prefix, prefix, prefix + 'MAX2008')
