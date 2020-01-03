@@ -1,3 +1,5 @@
+--to-sql-01
+
 --SELECT * FROM [PPC_market_m24].[dbo].[Session] where bp_id = 3 ORDER by date_start DESC
 --SELECT * FROM [PPC_market_m24].[dbo].[ScanData] where session_id = 482
 --SELECT * FROM [PPC_market_m24].[dbo].[ScanData] where session_id = 481 and event_date > '20191213'
