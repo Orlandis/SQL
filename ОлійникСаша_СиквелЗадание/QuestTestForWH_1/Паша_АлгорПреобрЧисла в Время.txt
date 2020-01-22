@@ -1,0 +1,14 @@
+declare @T int
+
+set @T = 10455836
+--set @T = 421151
+
+select (@T / 1000000) % 100 as hour,
+       (@T / 10000) % 100 as minute,
+       (@T / 100) % 100 as second,
+       (@T % 100) * 10 as millisecond
+
+select dateadd(hour, (@T / 1000000) % 100,
+       dateadd(minute, (@T / 10000) % 100,
+       dateadd(second, (@T / 100) % 100,
+       dateadd(millisecond, (@T % 100) * 10, cast('00:00:00' as time(2))))))
